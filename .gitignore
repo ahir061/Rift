@@ -1,0 +1,26 @@
+# Python-generated files
+__pycache__/
+*.py[oc]
+build/
+dist/
+wheels/
+*.egg-info
+.playwright
+.pytest_cache/
+.ruff_cache/
+.rift/
+# Legacy Rift state directory.
+.harness/
+.mypy_cache/
+
+# Virtual environments
+.venv
+.env
+.python-version
+
+# Miscellaneous
+backup/
+
+providers.yaml
+FRONTEND.md
+PLAN.md

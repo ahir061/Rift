@@ -1,0 +1,47 @@
+# Named providers for Rift. This file is read ONLY when you pass
+# --provider NAME (e.g. `rift --provider openrouter`). Without --provider
+# Rift always uses ollama, configured from .env.
+#
+# Copy this file to the Rift config location and fill in your values:
+# %APPDATA%\rift\providers.yaml (Windows) or
+# ~/.config/rift/providers.yaml (other platforms).
+# `rift init-provider` creates it for you; this file is the reference template.
+#
+# Fields per provider:
+#   base_url   API endpoint (required)
+#   api_key    secret for that service (leave out to use env vars instead)
+#   default    the provider's default model id — Rift uses this unless
+#              --model is given (a legacy `model:` key is accepted as an alias)
+#   models     optional curated list of model ids: --model must pick one of
+#              them (the first is the default when `default` is absent);
+#              leave out to allow any id
+#   kind       wire protocol: openai (default for custom names), ollama,
+#              or openrouter. A name that matches a built-in inherits it.
+#   num_ctx    context window (ollama only)
+#
+# The default provider (no --provider) is ALWAYS ollama.
+#
+# Manage providers/models from the command line:
+#   rift init-provider ...                      create a provider
+#   rift --provider openrouter --add <id>       append to the models list
+#   rift --provider openrouter --set-default <id>   replace the default field
+
+providers:
+  openrouter:
+    base_url: https://openrouter.ai/api/v1
+    api_key: sk-or-v1-xxxxxxxxxxxxxxxx
+    models:
+      - openai/gpt-5.5
+      - deepseek/deepseek-v4-flash-0731
+      - anthropic/claude-sonnet-4
+    default: deepseek/deepseek-v4-flash-0731
+
+  # groq:
+  #   base_url: https://api.groq.com/openai/v1
+  #   api_key: gsk_xxxxxxxxxxxxxxxx
+  #   default: llama-3.3-70b-versatile
+
+  # local:
+  #   kind: ollama
+  #   base_url: http://127.0.0.1:11434
+  #   default: qwen3
