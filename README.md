@@ -1,6 +1,6 @@
 # Rift
 
-![Rift](images/Rift.png)
+![Rift](images/rift-readme.png)
 
 
 **A lightweight Agentic Coding Harness for local & hosted LLMs.**
