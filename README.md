@@ -341,8 +341,3 @@ mypy .
 The package is named `rift-agentic-harness`, and its primary executable is
 `rift`.
 
-## Compatibility
-
-The previous `harness` executable, `Harness` Python class, `HARNESS_*`
-environment variables, and legacy configuration directory remain available for
-existing installations. New integrations should use the Rift names.
